@@ -4,7 +4,6 @@ require 'pry'
 
 
 def import_starwars_data(url)
-  #make th'e web request
   all_characters = RestClient.get(url)
   character_hash = JSON.parse(all_characters)
 end
@@ -14,7 +13,6 @@ end
 
 
 def get_character_movies_from_api(character)
-  #make the web request
   pagenum = 0
   movie_urls = []
   url = "http://www.swapi.co/api/people/?page=1"
@@ -26,21 +24,16 @@ def get_character_movies_from_api(character)
       end
     end
     url = character_hash["next"]
-    if url == "" #pagenum == 9
+    if url == ""
       puts "That person is not in the database."
       break
     end
-
-
-
-#binding.pry
   end
   movie_urls
 end
 
 
 def parse_character_movies(films_hash)
-  # some iteration magic and puts out the movies in a nice list
   movie_hashes = []
   films_hash.each do |url|
     movie1 = RestClient.get(url)
@@ -92,12 +85,3 @@ def show_list_of_chars_in_ep(ep_num)
   char_arr = get_char_list_from_ep(ep_num)
   puts parse_char_data(char_arr)
 end
-
-
-
-["Luke Skywalker", "C-3PO", "R2-D2", "Darth Vader", "Leia Organa", "Owen Lars","Beru Whitesun lars","R5-D4","Biggs Darklighter","Obi-Wan Kenobi","Wilhuff Tarkin","Chewbacca","Han Solo","Greedo","Jabba Desilijic Tiure","Wedge Antilles","Jek Tono Porkins","Raymus Antilles"]
-
-## BONUS
-
-# that `get_character_movies_from_api` method is probably pretty long. Does it do more than one job?
-# can you split it up into helper methods?
