@@ -7,8 +7,10 @@ class CreateCharactersTable < ActiveRecord::Migration
       t.string :hair_color
       t.string :skin_color
       t.string :eye_color
-      t.string :birthyear
+      t.string :birth_year
       t.string :gender
+      t.string :created
+      t.string :edited
       t.string :url
     end
   end

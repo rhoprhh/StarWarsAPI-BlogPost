@@ -10,6 +10,8 @@ class CreatePlanetsTable < ActiveRecord::Migration
       t.string :terrain
       t.string :surface_water
       t.string :population
+      t.string :created
+      t.string :edited
       t.string :url
     end
   end

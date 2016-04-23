@@ -9,7 +9,9 @@ class CreateSpeciesTable < ActiveRecord::Migration
       t.string :hair_colors
       t.string :eye_colors
       t.string :average_lifespan
-      t.string :languages
+      t.string :language
+      t.string :created
+      t.string :edited
       t.string :url
     end
   end

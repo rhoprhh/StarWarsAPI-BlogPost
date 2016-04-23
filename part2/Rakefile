@@ -21,4 +21,8 @@ namespace :db do
   task :reset => [:drop, :migrate] do
   end
 
+  task :seed do
+    require_relative 'db/seeds.rb'
+  end
+
 end
