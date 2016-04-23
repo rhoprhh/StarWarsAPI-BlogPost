@@ -1,0 +1,24 @@
+task :environment do
+  require_relative './config/environment.rb'
+end
+
+desc 'drop into the Pry console'
+task :console => :environment do
+  Pry.start
+end
+
+desc 'database migration functions'
+namespace :db do
+
+  task :migrate => :environment do
+    ActiveRecord::Migrator.migrate("db/migrations/")
+  end
+
+  task :drop => :environment do
+    File.delete("../db/starwars.db") if File.exist?("../db/starwars.db")
+  end
+
+  task :reset => [:drop, :migrate] do
+  end
+
+end
