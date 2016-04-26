@@ -53,8 +53,8 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
-  json (>= 1.7)
-  minitest (>= 5.1)
+  json (~> 1.7)
+  minitest (~> 5.1)
   nokogiri
   pry
   rake

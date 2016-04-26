@@ -1,4 +1,5 @@
-CHARACTERS_ARRAY = [{"name"=>"Luke Skywalker",
+CHARACTERS_ARRAY
+ = [{"name"=>"Luke Skywalker",
   "height"=>"172",
   "mass"=>"77",
   "hair_color"=>"blond",
