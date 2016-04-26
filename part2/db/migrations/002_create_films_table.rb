@@ -1,6 +1,7 @@
 class CreateFilmsTable < ActiveRecord::Migration
   def change
-    create_table :films do |t|
+    create_table(:films, {id: false}) do |t|
+      t.integer :id
       t.string :title
       t.string :episode_id
       t.text   :opening_crawl

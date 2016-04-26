@@ -29,9 +29,10 @@ class ApiCommunicator
     #start relating them all to each other
     #this pattern repeats for the next 5 classes
     @page_url = "http://swapi.co/api/people/"
-    chars = pull_all_pages_data
-    chars.each do |x|
+    @chars_array = pull_all_pages_data
+    @chars_array.each do |x|
       new_character = Character.new(
+        id: x["url"].split('/').last.to_i,
         name: x["name"],
         height: x["height"],
         mass: x["mass"],
@@ -50,9 +51,10 @@ class ApiCommunicator
 
   def pull_films
     @page_url = "http://swapi.co/api/films/"
-    films = pull_all_pages_data
-    films.each do |x|
+    @films_array = pull_all_pages_data
+    @films_array.each do |x|
       new_film = Film.new(
+        id: x["url"].split('/').last.to_i,
         title: x["title"],
         episode_id: x["episode_id"],
         opening_crawl: x["opening_crawl"],
@@ -68,9 +70,10 @@ class ApiCommunicator
 
   def pull_planets
     @page_url = "http://swapi.co/api/planets/"
-    planets = pull_all_pages_data
-    planets.each do |x|
+    @planets_array = pull_all_pages_data
+    @planets_array.each do |x|
       new_planet = Planet.new(
+        id: x["url"].split('/').last.to_i,
         name: x["name"],
         rotation_period: x["rotation_period"],
         orbital_period: x["orbital_period"],
@@ -89,9 +92,10 @@ class ApiCommunicator
 
   def pull_species
     @page_url = "http://swapi.co/api/species/"
-    species = pull_all_pages_data
-    species.each do |x|
+    @species_array = pull_all_pages_data
+    @species_array.each do |x|
       new_specie = Specie.new(
+        id: x["url"].split('/').last.to_i,
         name: x["name"],
         classification: x["classification"],
         designation: x["designation"],
@@ -110,9 +114,10 @@ class ApiCommunicator
 
   def pull_vehicles
     @page_url = "http://swapi.co/api/vehicles/"
-    vechicles = pull_all_pages_data
-    vechicles.each do |x|
+    @vehicles_array = pull_all_pages_data
+    @vehicles_array.each do |x|
       new_vehicle = Vehicle.new(
+        id: x["url"].split('/').last.to_i,
         name: x["name"],
         model: x["model"],
         manufacturer: x["manufacturer"],
@@ -133,9 +138,10 @@ class ApiCommunicator
 
   def pull_starships
     @page_url = "http://swapi.co/api/starships/"
-    starships = pull_all_pages_data
-    starships.each do |x|
+    @starships_array = pull_all_pages_data
+    @starships_array.each do |x|
       new_starship = Starship.new(
+        id: x["url"].split('/').last.to_i,
         name: x["name"],
         model: x["model"],
         manufacturer: x["manufacturer"],
@@ -154,9 +160,112 @@ class ApiCommunicator
         url: x["url"])
       new_starship.save
     end
-
   end
 
+  def pull_characters_relations
+    @chars_array.each do |x|
+      current_char = Character.find(x["url"].split('/').last.to_i)
+      x["films"].each do |film|
+        current_char.films << Film.find(film.split('/').last.to_i)
+      end
+      if x["species"].empty?
+      else
+        x["species"].each do |specie|
+          current_char.specie << Specie.find(specie.split('/').last.to_i)
+        end
+      end
+      if x["vehicles"].empty?
+      else
+        x["vehicles"].each do |vehicle|
+          if vehicle.split('/').last.to_i > 39
+            #only the 39 vehicles in the list get pulled
+            #until we scrape every link, we need this if statement
+          else
+            current_char.vehicles << Vehicle.find(vehicle.split('/').last.to_i)
+          end
+        end
+      end
+      if x["starships"].empty?
+      else
+        x["starships"].each do |starship|
+          if starship.split('/').last.to_i > 37
+            #only the 37 starships in the list get pulled
+            #until we scrape every link, we need this if statement
+          else
+            current_char.starships << Starship.find(starship.split('/').last.to_i)
+          end
+        end
+      end
+      current_char.planet = Planet.find(x["homeworld"].split('/').last.to_i)
+    end
+  end
 
+  def pull_films_relations
+    @films_array.each do |x|
+      current_film = Film.find(x["url"].split('/').last.to_i)
 
+      # if x["planets"].empty?
+      #else
+        x["planets"].each do |planet|
+          current_film.planet << Planet.find(specie.split('/').last.to_i)
+        end
+      # end
+
+      # if x["starships"].empty?
+      # else
+        x["starships"].each do |starship|
+          # if starship.split('/').last.to_i > 37
+          #   #only the 37 starships in the list get pulled
+          #   #until we scrape every link, we need this if statement
+          # else
+            current_film.starships << Starship.find(starship.split('/').last.to_i)
+        #   end
+        # end
+      end
+
+      if x["vehicles"].empty?
+      else
+        x["vehicles"].each do |vehicle|
+          if vehicle.split('/').last.to_i > 39
+            #only the 39 vehicles in the list get pulled
+            #until we scrape every link, we need this if statement
+          else
+            current_film.vehicles << Vehicle.find(vehicle.split('/').last.to_i)
+          end
+        end
+      end
+
+      if x["species"].empty?
+      else
+        x["species"].each do |specie|
+          current_film.specie << Specie.find(specie.split('/').last.to_i)
+        end
+      end
+
+    end
+  end
+  #
+  # def pull_species_relations
+  #   @species_array.each do |x|
+  #     current_specie = Specie.find(x["url"].split('/').last.to_i)
+  #   end
+  # end
+  #
+  # def pull_planets_relations
+  #   @planets_array.each do |x|
+  #     current_planet = Planet.find(x["url"].split('/').last.to_i)
+  #   end
+  # end
+  #
+  # def pull_vehicles_relations
+  #   @vehicles_array.each do |x|
+  #     current_vehicle = Vehicle.find(x["url"].split('/').last.to_i)
+  #   end
+  # end
+  #
+  # def pull_starships_relations
+  #   @starships_array.each do |x|
+  #     current_starship = Starship.find(x["url"].split('/').last.to_i)
+  #   end
+  # end
 end

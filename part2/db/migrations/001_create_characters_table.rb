@@ -1,6 +1,7 @@
 class CreateCharactersTable < ActiveRecord::Migration
   def change
-    create_table :characters do |t|
+    create_table(:characters, {id: false}) do |t|
+      t.integer :id
       t.string :name
       t.string :height
       t.string :mass
@@ -12,6 +13,7 @@ class CreateCharactersTable < ActiveRecord::Migration
       t.string :created
       t.string :edited
       t.string :url
+      t.belongs_to :planet, index: true
     end
   end
 end

@@ -1,6 +1,7 @@
 class CreateStarshipsTable < ActiveRecord::Migration
   def change
-    create_table :starships do |t|
+    create_table(:starships, {id: false}) do |t|
+      t.integer :id
       t.string :name
       t.string :model
       t.string :manufacturer

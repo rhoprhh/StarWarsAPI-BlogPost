@@ -1,7 +1,7 @@
 class Planet < ActiveRecord::Base
 
-  has_many :films
+  has_and_belongs_to_many :films
   has_many :characters
-  has_many :species, through: :people
-  
+  has_many :specie, through: :people
+
 end

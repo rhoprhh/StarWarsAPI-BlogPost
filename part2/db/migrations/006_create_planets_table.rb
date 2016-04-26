@@ -1,6 +1,7 @@
 class CreatePlanetsTable < ActiveRecord::Migration
   def change
-    create_table :planets do |t|
+    create_table(:planets,{id: false}) do |t|
+      t.integer :id
       t.string :name
       t.string :rotation_period
       t.string :orbital_period

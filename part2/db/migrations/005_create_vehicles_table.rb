@@ -1,6 +1,7 @@
 class CreateVehiclesTable < ActiveRecord::Migration
   def change
-    create_table :vehicles do |t|
+    create_table(:vehicles, {id: false}) do |t|
+      t.integer :id
       t.string :name
       t.string :model
       t.string :manufacturer

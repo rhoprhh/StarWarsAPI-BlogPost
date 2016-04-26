@@ -8,13 +8,14 @@ x = ApiCommunicator.new
 
 
 
-
 x.pull_characters
 x.pull_films
 x.pull_species
 x.pull_vehicles
 x.pull_starships
 x.pull_planets
+x.pull_characters_relations
+
 # lengths = [fi.count, pe.count, sp.count, ve.count, st.count, pl.count]
 #
 # array = []
@@ -33,4 +34,3 @@ x.pull_planets
 #     edited: x["edited"],
 #     url: x["url"])
 # end
-binding.pry

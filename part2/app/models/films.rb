@@ -1,9 +1,9 @@
 class Film < ActiveRecord::Base
 
-  has_many :planets
-  has_many :species
-  has_many :vehicles
-  has_many :starships
-  has_many :characters
+  has_and_belongs_to_many :planets
+  has_and_belongs_to_many :specie
+  has_and_belongs_to_many :vehicles
+  has_and_belongs_to_many :starships
+  has_and_belongs_to_many :characters
 
 end
