@@ -1,4 +1,4 @@
-starships = [{"name"=>"Sentinel-class landing craft",
+STARSHIPS_ARRAY = [{"name"=>"Sentinel-class landing craft",
   "model"=>"Sentinel-class landing craft",
   "manufacturer"=>"Sienar Fleet Systems, Cyngus Spaceworks",
   "cost_in_credits"=>"240000",

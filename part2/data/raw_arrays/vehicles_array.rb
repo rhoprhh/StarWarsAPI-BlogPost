@@ -1,4 +1,4 @@
-[{"name"=>"Sand Crawler",
+VEHICLES_ARRAY = [{"name"=>"Sand Crawler",
   "model"=>"Digger Crawler",
   "manufacturer"=>"Corellia Mining Corporation",
   "cost_in_credits"=>"150000",

@@ -177,71 +177,35 @@ class ApiCommunicator
       if x["vehicles"].empty?
       else
         x["vehicles"].each do |vehicle|
-          if vehicle.split('/').last.to_i > 39
-            #only the 39 vehicles in the list get pulled
-            #until we scrape every link, we need this if statement
-          else
-            current_char.vehicles << Vehicle.find(vehicle.split('/').last.to_i)
-          end
+          current_char.vehicles << Vehicle.find(vehicle.split('/').last.to_i)
         end
       end
       if x["starships"].empty?
       else
         x["starships"].each do |starship|
-          if starship.split('/').last.to_i > 37
-            #only the 37 starships in the list get pulled
-            #until we scrape every link, we need this if statement
-          else
-            current_char.starships << Starship.find(starship.split('/').last.to_i)
-          end
+          current_char.starships << Starship.find(starship.split('/').last.to_i)
         end
       end
       current_char.planet = Planet.find(x["homeworld"].split('/').last.to_i)
+      current_char.save
     end
   end
 
   def pull_films_relations
     @films_array.each do |x|
       current_film = Film.find(x["url"].split('/').last.to_i)
-
-      # if x["planets"].empty?
-      #else
-        x["planets"].each do |planet|
-          current_film.planet << Planet.find(specie.split('/').last.to_i)
-        end
-      # end
-
-      # if x["starships"].empty?
-      # else
-        x["starships"].each do |starship|
-          # if starship.split('/').last.to_i > 37
-          #   #only the 37 starships in the list get pulled
-          #   #until we scrape every link, we need this if statement
-          # else
-            current_film.starships << Starship.find(starship.split('/').last.to_i)
-        #   end
-        # end
+      x["planets"].each do |planet|
+        current_film.planets << Planet.find(planet.split('/').last.to_i)
       end
-
-      if x["vehicles"].empty?
-      else
-        x["vehicles"].each do |vehicle|
-          if vehicle.split('/').last.to_i > 39
-            #only the 39 vehicles in the list get pulled
-            #until we scrape every link, we need this if statement
-          else
-            current_film.vehicles << Vehicle.find(vehicle.split('/').last.to_i)
-          end
-        end
+      x["starships"].each do |starship|
+        current_film.starships << Starship.find(starship.split('/').last.to_i)
       end
-
-      if x["species"].empty?
-      else
-        x["species"].each do |specie|
-          current_film.specie << Specie.find(specie.split('/').last.to_i)
-        end
+      x["vehicles"].each do |vehicle|
+        current_film.vehicles << Vehicle.find(vehicle.split('/').last.to_i)
       end
-
+      x["species"].each do |specie|
+        current_film.specie << Specie.find(specie.split('/').last.to_i)
+      end
     end
   end
   #

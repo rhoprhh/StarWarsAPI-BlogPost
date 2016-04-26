@@ -1,4 +1,4 @@
-planets = [{"name"=>"Alderaan",
+PLANETS_ARRAY = [{"name"=>"Alderaan",
   "rotation_period"=>"24",
   "orbital_period"=>"364",
   "diameter"=>"12500",

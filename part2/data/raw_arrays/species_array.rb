@@ -1,4 +1,4 @@
-[{"name"=>"Rodian",
+SPECIES_ARRAY = [{"name"=>"Rodian",
   "classification"=>"sentient",
   "designation"=>"reptilian",
   "average_height"=>"170",

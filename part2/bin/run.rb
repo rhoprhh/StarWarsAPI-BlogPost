@@ -15,6 +15,7 @@ x.pull_vehicles
 x.pull_starships
 x.pull_planets
 x.pull_characters_relations
+x.pull_films_relations
 
 # lengths = [fi.count, pe.count, sp.count, ve.count, st.count, pl.count]
 #
