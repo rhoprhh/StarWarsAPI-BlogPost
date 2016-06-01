@@ -1,0 +1,2 @@
+class StarshipsController < ApplicationController
+end

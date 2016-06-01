@@ -1,0 +1,2 @@
+class FilmsController < ApplicationController
+end
