@@ -1,7 +1,9 @@
 class Vehicle < ActiveRecord::Base
 
-  has_and_belongs_to_many :characters
-  has_and_belongs_to_many :films
+  has_many :character_vehicles
+  has_many :characters, through: :character_vehicles
+  has_many :film_vehicles
+  has_many :films, through: :film_vehicles
   self.primary_key = 'id'
 
 end

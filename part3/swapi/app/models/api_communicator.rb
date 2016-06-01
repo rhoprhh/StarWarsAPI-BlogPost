@@ -1,5 +1,4 @@
 class ApiCommunicator
-
   attr_accessor :page_url
 
   #this will pull our complete hashes which will be processed by the individual classes
@@ -170,7 +169,7 @@ class ApiCommunicator
       if x["species"].empty?
       else
         x["species"].each do |specie|
-          current_char.specie << Specie.find(specie.split('/').last.to_i)
+          current_char.species << Specie.find(specie.split('/').last.to_i)
         end
       end
       if x["vehicles"].empty?
@@ -203,7 +202,7 @@ class ApiCommunicator
         current_film.vehicles << Vehicle.find(vehicle.split('/').last.to_i)
       end
       x["species"].each do |specie|
-        current_film.specie << Specie.find(specie.split('/').last.to_i)
+        current_film.species << Specie.find(specie.split('/').last.to_i)
       end
     end
   end
