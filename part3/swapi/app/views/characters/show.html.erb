@@ -15,15 +15,23 @@ Specie: <a href='/species/<%= @character.species[0].id %>'><%= @character.specie
 Home Planet: <a href="/planets/<%= @character.planet.id %>"><%= @character.planet.name %></a><br><br>
 Vehicles
 <ul>
+  <% if !@character.vehicles.empty? %>
   <% @character.vehicles.each do |v| %>
   <li><a href="/vehicles/<%=v.id%>"><%=v.name%></a></li>
   <%end%>
+  <% else %>
+  <li>No Vehicles</li>
+  <% end %>
 </ul><br>
 Starships
 <ul>
+  <% if !@character.starships.empty? %>
   <% @character.starships.each do |s| %>
   <li><a href="/starships/<%=s.id%>"><%=s.name%></a></li>
   <%end%>
+  <% else %>
+  <li>No Starships</li>
+  <% end %>
 </ul><br>
 Films
 <ul>
