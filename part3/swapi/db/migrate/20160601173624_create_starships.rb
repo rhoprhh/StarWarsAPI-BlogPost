@@ -7,7 +7,7 @@ class CreateStarships < ActiveRecord::Migration
       t.string :manufacturer
       t.string :cost_in_credits
       t.string :length
-      t.string :max_atmoshpering_speed
+      t.string :max_atmosphering_speed
       t.string :crew
       t.string :passengers
       t.string :cargo_capacity
