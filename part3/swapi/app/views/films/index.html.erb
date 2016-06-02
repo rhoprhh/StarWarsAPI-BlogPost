@@ -1,0 +1,5 @@
+<h2> Film Index Page </h2>
+<a href='/'><p>home</p></a>
+<% @films.all.each do |f|%>
+<a href="/films/<%=f.id%>"><%= f.title %></a><br>
+<%end%>

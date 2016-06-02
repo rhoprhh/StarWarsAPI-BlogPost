@@ -1,0 +1,5 @@
+<h2> Planet Index Page </h2>
+<a href='/'><p>home</p></a>
+<% @planets.all.each do |p|%>
+<a href="/planets/<%=p.id%>"><%= p.name %></a><br>
+<%end%>

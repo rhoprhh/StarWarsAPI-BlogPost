@@ -1,0 +1,5 @@
+<h2> Character Index Page </h2>
+<a href='/'><p>home</p></a>
+<% @characters.all.each do |c|%>
+<a href="/characters/<%=c.id%>"><%= c.name %></a><br>
+<%end%>

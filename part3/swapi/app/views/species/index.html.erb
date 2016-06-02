@@ -1,0 +1,5 @@
+<h2> Specie Index Page </h2>
+<a href='/'><p>home</p></a>
+<% @species.all.each do |s|%>
+<a href="/species/<%=s.id%>"><%= s.name %></a><br>
+<%end%>

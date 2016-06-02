@@ -1,0 +1,5 @@
+<h2> Starship Index Page </h2>
+<a href='/'><p>home</p></a>
+<% @starships.all.each do |s|%>
+<a href="/starships/<%=s.id%>"><%= s.name %></a><br>
+<%end%>

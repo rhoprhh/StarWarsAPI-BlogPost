@@ -1,0 +1,33 @@
+<h3> Character Show Page! </h3>
+<a href='/'>home</a><br>
+<a href='/characters'>characters</a><br>
+<hr>
+Name: <%= @character.name %><br>
+Height: <%= @character.height %>cm tall <br>
+Mass: <%= @character.mass %>kg <br>
+Hair Color: <%= @character.hair_color %><br>
+Skin Color: <%= @character.skin_color %><br>
+Eye Color: <%= @character.eye_color %><br>
+Gender: <%= @character.gender %><br>
+Birthyear: <%= @character.birth_year %><br>
+Specie: <a href='/species/<%= @character.species[0].id %>'><%= @character.species[0].name %></a>
+<hr>
+Home Planet: <a href="/planets/<%= @character.planet.id %>"><%= @character.planet.name %></a><br><br>
+Vehicles
+<ul>
+  <% @character.vehicles.each do |v| %>
+  <li><a href="/vehicles/<%=v.id%>"><%=v.name%></a></li>
+  <%end%>
+</ul><br>
+Starships
+<ul>
+  <% @character.starships.each do |s| %>
+  <li><a href="/starships/<%=s.id%>"><%=s.name%></a></li>
+  <%end%>
+</ul><br>
+Films
+<ul>
+  <% @character.films.each do |f| %>
+  <li><a href="/films/<%=f.id%>"><%=f.title%></a></li>
+  <%end%>
+</ul><br>
