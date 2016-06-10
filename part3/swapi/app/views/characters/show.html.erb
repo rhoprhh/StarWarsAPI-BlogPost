@@ -10,7 +10,12 @@ Skin Color: <%= @character.skin_color %><br>
 Eye Color: <%= @character.eye_color %><br>
 Gender: <%= @character.gender %><br>
 Birthyear: <%= @character.birth_year %><br>
-Specie: <a href='/species/<%= @character.species[0].id %>'><%= @character.species[0].name %></a>
+Specie:
+<% if @character.species.empty?%>
+No Species Listed
+<% else %>
+<a href='/species/<%= @character.species[0].id %>'><%= @character.species[0].name %></a>
+<% end %>
 <hr>
 Home Planet: <a href="/planets/<%= @character.planet.id %>"><%= @character.planet.name %></a><br><br>
 Vehicles
