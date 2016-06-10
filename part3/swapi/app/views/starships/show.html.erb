@@ -1,0 +1,34 @@
+<h3> Starship Show Page! </h3>
+<a href='/'>home</a><br>
+<a href='/starships'>starships</a><br>
+<hr>
+Name: <%= @starship.name %><br>
+Model: <%= @starship.model %><br>
+Manufacturer: <%= @starship.manufacturer %><br>
+Cost In Credits: <%= @starship.cost_in_credits %><br>
+Length: <%= @starship.length %><br>
+Max Atmospheric Speed: <%= @starship.max_atmosphering_speed %><br>
+Crew: <%= @starship.crew %><br>
+Passengers: <%= @starship.passengers %><br>
+Cargo Capacity:  <%= @starship.cargo_capacity %><br>
+Starship Class: <%= @starship.starship_class%><br>
+Hyperdrive Rating: <%= @starship.hyperdrive_rating %><br>
+MGLT: <%= @starship.MGLT %>
+<hr>
+Pilots/characters
+<ul>
+  <% if !@starship.characters.empty?%>
+  <% @starship.characters.each do |c| %>
+  <li><a href="/characters/<%=c.id%>"><%=c.name%></a></li>
+  <%end%>
+  <% else %>
+  <li>No Famous Pilots</li>
+  <%end%>
+
+</ul><br>
+Films
+<ul>
+  <% @starship.films.each do |f| %>
+  <li><a href="/films/<%=f.id%>"><%=f.title%></a></li>
+  <%end%>
+</ul><br>

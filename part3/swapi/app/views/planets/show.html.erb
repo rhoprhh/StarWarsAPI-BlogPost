@@ -1,0 +1,32 @@
+<h3> Planet Show Page! </h3>
+<a href='/'>home</a><br>
+<a href='/planets'>planets</a><br>
+<hr>
+Name: <%= @planet.name %><br>
+Rotation Period: <%= @planet.rotation_period %><br>
+Orbital Period: <%= @planet.orbital_period %><br>
+Diameter: <%= @planet.diameter %><br>
+Climate: <%= @planet.climate %><br>
+Gravity: <%= @planet.gravity %><br>
+Terrain: <%= @planet.terrain %><br>
+Surface Water: <%= @planet.surface_water %><br>
+Population: <%= @planet.population %><br>
+<hr>
+Characters
+<ul>
+  <% @planet.characters.each do |c| %>
+  <li><a href="/characters/<%=c.id%>"><%=c.name%></a></li>
+  <%end%>
+</ul><br>
+Species
+<ul>
+  <% @planet.species.uniq.each do |s| %>
+  <li><a href="/species/<%=s.id%>"><%=s.name%></a></li>
+  <%end%>
+</ul><br>
+Films
+<ul>
+  <% @planet.films.each do |f| %>
+  <li><a href="/films/<%=f.id%>"><%=f.title%></a></li>
+  <%end%>
+</ul><br>

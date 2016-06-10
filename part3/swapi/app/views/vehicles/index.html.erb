@@ -1,0 +1,5 @@
+<h2> Vehicle Index Page </h2>
+<a href='/'><p>home</p></a>
+<% @vehicles.all.each do |v|%>
+<a href="/vehicles/<%=v.id%>"><%= v.name %></a><br>
+<%end%>

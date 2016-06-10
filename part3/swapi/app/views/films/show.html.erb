@@ -1,0 +1,40 @@
+<h3> Film Show Page! </h3>
+<a href='/'>home</a><br>
+<a href='/films'>films</a><br>
+<hr>
+
+<%= @film.title %> - Episode <%= @film.episode_id %><br>
+Director: <%= @film.director %><br>
+Producer: <%= @film.producer %><br>
+Opening Crawl: <%= @film.opening_crawl%>
+<hr>
+Vehicles
+<ul>
+  <% @film.vehicles.each do |v| %>
+  <li><a href="/vehicles/<%=v.id%>"><%=v.name%></a></li>
+  <%end%>
+</ul><br>
+Starships
+<ul>
+  <% @film.starships.each do |s| %>
+  <li><a href="/starships/<%=s.id%>"><%=s.name%></a></li>
+  <%end%>
+</ul><br>
+Characters
+<ul>
+  <% @film.characters.each do |c| %>
+  <li><a href="/characters/<%=c.id%>"><%=c.name%></a></li>
+  <%end%>
+</ul><br>
+Planets
+<ul>
+  <% @film.planets.each do |p| %>
+  <li><a href="/planets/<%=p.id%>"><%=p.name%></a></li>
+  <%end%>
+</ul><br>
+Species
+<ul>
+  <% @film.species.each do |s| %>
+  <li><a href="/species/<%=s.id%>"><%=s.name%></a></li>
+  <%end%>
+</ul><br>

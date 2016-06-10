@@ -1,0 +1,26 @@
+<h3> Specie Show Page! </h3>
+<a href='/'>home</a><br>
+<a href='/species'>species</a><br>
+<hr>
+Name: <%= @specie.name %><br>
+Classification: <%= @specie.classification %><br>
+Designation: <%= @specie.designation %><br>
+Average Height: <%= @specie.average_height %> cm<br>
+Skin Colors: <%= @specie.skin_colors %><br>
+Hair Colors: <%= @specie.hair_colors %><br>
+Eye Colors: <%= @specie.eye_colors %><br>
+Average Lifespan: <%= @specie.average_lifespan %><br>
+Language: <%= @specie.language %><br>
+<hr>
+Planets/Home Worlds
+<ul>
+  <% @specie.planets.uniq.each do |p| %>
+  <li><a href="/planets/<%=p.id%>"><%=p.name%></a></li>
+  <%end%>
+</ul><br>
+Characters
+<ul>
+  <% @specie.characters.each do |c| %>
+  <li><a href="/characters/<%=c.id%>"><%=c.name%></a></li>
+  <%end%>
+</ul><br>

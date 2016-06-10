@@ -1,0 +1,31 @@
+<h3> Vehicle Show Page! </h3>
+<a href='/'>home</a><br>
+<a href='/vehicles'>vehicles</a><br>
+<hr>
+Name: <%= @vehicle.name %><br>
+Model: <%= @vehicle.model %><br>
+Manufacturer: <%= @vehicle.manufacturer %><br>
+Cost In Credits: <%= @vehicle.cost_in_credits %><br>
+Length: <%= @vehicle.length %><br>
+Max Atmospheric Speed: <%= @vehicle.max_atmosphering_speed %><br>
+Crew: <%= @vehicle.crew %><br>
+Passengers: <%= @vehicle.passengers %><br>
+Cargo Capacity:  <%= @vehicle.cargo_capacity %><br>
+<hr>
+Pilots/characters
+<ul>
+  <% if !@vehicle.characters.empty?%>
+  <% @vehicle.characters.each do |c| %>
+  <li><a href="/characters/<%=c.id%>"><%=c.name%></a></li>
+  <%end%>
+  <% else %>
+  <li>No Famous Pilots</li>
+  <%end%>
+
+</ul><br>
+Films
+<ul>
+  <% @vehicle.films.each do |f| %>
+  <li><a href="/films/<%=f.id%>"><%=f.title%></a></li>
+  <%end%>
+</ul><br>
