@@ -1,0 +1,29 @@
+<div class='jumbotron'><h1 class='text-center'> Planets </h1></div>
+<div class='list-group'>
+  <div class='col-md-4'>
+    <% count = 0 %>
+    <% @planets.all.each do |p|%>
+      <% if count < 21  %>
+        <a class='list-group-item' href="/planets/<%=p.id%>"><%= p.name %></a>
+      <%end%>
+      <% count += 1 %>
+    <%end%>
+  </div>
+  <div class='col-md-4'>
+    <% count = 0 %>
+    <% @planets.all.each do |p|%>
+      <% if count > 20 && count < 41  %>
+        <a class='list-group-item' href="/planets/<%=p.id%>"><%= p.name %></a>
+      <%end%>
+      <% count += 1 %>
+    <%end%>
+  </div>
+  <div class='col-md-4'>
+    <% count = 0 %>
+    <% @planets.all.each do |p|%>
+      <% if count > 40  %>
+        <a class='list-group-item' href="/planets/<%=p.id%>"><%= p.name %></a>
+      <%end%>
+      <% count += 1 %>
+    <%end%>
+</div>

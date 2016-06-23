@@ -1,0 +1,81 @@
+<div class='panel panel-default'>
+  <div class="panel-heading"><h1 class='text-center'><%= @starship.name %></h1></div>
+  <table class='table table-bordered'>
+    <tr>
+      <th>Name:</th>
+      <td><%=@starship.name%></td>
+    </tr>
+    <tr>
+      <th>Model:</th>
+      <td><%= @starship.model %></td>
+    </tr>
+    <tr>
+      <th>Manufacturer:</th>
+      <td><%= @starship.manufacturer %></td>
+    </tr>
+    <tr>
+      <th>Cost in Credits:</th>
+      <td><%= @starship.cost_in_credits %> Credits</td>
+    </tr>
+    <tr>
+      <th>Length:</th>
+      <td><%= @starship.length %></td>
+    </tr>
+    <tr>
+      <th>Max Atmospheric Speed:</th>
+      <td><%= @starship.max_atmosphering_speed %></td>
+    </tr>
+    <tr>
+      <th>Crew:</th>
+      <td><%= @starship.crew %></td>
+    </tr>
+    <tr>
+      <th>Passengers:</th>
+      <td><%= @starship.passengers %></td>
+    </tr>
+    <tr>
+      <th>Cargo Capacity:</th>
+      <td><%= @starship.cargo_capacity %></td>
+    </tr>
+    <tr>
+      <th>Starship Class:</th>
+      <td><%= @starship.starship_class %></td>
+    </tr>
+    <tr>
+      <th>Hyperdrive Rating:</th>
+      <td><%= @starship.hyperdrive_rating %></td>
+    </tr>
+    <tr>
+      <th>MGLT:</th>
+      <td><%= @starship.MGLT %></td>
+    </tr>
+  </table>
+</div>
+<hr>
+<div class="row">
+  <div class='col-md-6'>
+    <div class='list-group'>
+      <a href='#' class='list-group-item disabled'><h2>Pilots</h2></a>
+      <% if !@starship.characters.empty? %>
+      <% @starship.characters.each do |c| %>
+      <a class="list-group-item" href="/characters/<%=c.id%>"><%=c.name%></a>
+      <%end%>
+      <% else %>
+      <a href='#' class="list-group-item">No Pilots</a>
+      <% end %>
+    </div>
+  </div>
+  <div class='col-md-6'>
+    <div class='list-group'>
+      <a href='#' class='list-group-item disabled'><h2>Films</h2></a>
+      <% if !@starship.films.empty? %>
+      <% @starship.films.uniq.each do |f| %>
+      <a class='list-group-item' href="/films/<%=f.id%>"><%=f.title%></a>
+      <%end%>
+      <% else %>
+      <a class='list-group-item'>No Films</a>
+      <% end %>
+    </div>
+  </div>
+
+</div> <!-- row -->

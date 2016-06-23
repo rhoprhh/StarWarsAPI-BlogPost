@@ -1,0 +1,69 @@
+<div class='panel panel-default'>
+  <div class="panel-heading"><h1 class='text-center'><%= @vehicle.name %></h1></div>
+  <table class='table table-bordered'>
+    <tr>
+      <th>Name:</th>
+      <td><%=@vehicle.name%></td>
+    </tr>
+    <tr>
+      <th>Model:</th>
+      <td><%= @vehicle.model %></td>
+    </tr>
+    <tr>
+      <th>Manufacturer:</th>
+      <td><%= @vehicle.manufacturer %></td>
+    </tr>
+    <tr>
+      <th>Cost in Credits:</th>
+      <td><%= @vehicle.cost_in_credits %> Credits</td>
+    </tr>
+    <tr>
+      <th>Length:</th>
+      <td><%= @vehicle.length %></td>
+    </tr>
+    <tr>
+      <th>Max Atmospheric Speed:</th>
+      <td><%= @vehicle.max_atmosphering_speed %></td>
+    </tr>
+    <tr>
+      <th>Crew:</th>
+      <td><%= @vehicle.crew %></td>
+    </tr>
+    <tr>
+      <th>Passengers:</th>
+      <td><%= @vehicle.passengers %></td>
+    </tr>
+    <tr>
+      <th>Cargo Capacity:</th>
+      <td><%= @vehicle.cargo_capacity %></td>
+    </tr>
+  </table>
+</div>
+<hr>
+<div class="row">
+  <div class='col-md-6'>
+    <div class='list-group'>
+      <a href='#' class='list-group-item disabled'><h2>Pilots</h2></a>
+      <% if !@vehicle.characters.empty? %>
+      <% @vehicle.characters.each do |c| %>
+      <a class="list-group-item" href="/characters/<%=c.id%>"><%=c.name%></a>
+      <%end%>
+      <% else %>
+      <a href='#' class="list-group-item">No Pilots</a>
+      <% end %>
+    </div>
+  </div>
+  <div class='col-md-6'>
+    <div class='list-group'>
+      <a href='#' class='list-group-item disabled'><h2>Films</h2></a>
+      <% if !@vehicle.films.empty? %>
+      <% @vehicle.films.uniq.each do |f| %>
+      <a class='list-group-item' href="/films/<%=f.id%>"><%=f.title%></a>
+      <%end%>
+      <% else %>
+      <a class='list-group-item'>No Films</a>
+      <% end %>
+    </div>
+  </div>
+
+</div> <!-- row -->
