@@ -1,0 +1,38 @@
+<div class='row'>
+  <div class="col-md-8">
+    <div class="jumbotron">
+      <center>
+        <h1> Welcome </h1>
+        <p>This is a website built to browse the information in the Star Wars API via a Rails Application</p>
+      </center>
+    </div>
+  </div>
+  <div class='col-md-4' style="height: 100%">
+    <div class='list-group' style="height: 100%">
+      <a href='/films' class='list-group-item'>
+        <span class="badge"><%=@films.count%></span>
+        Films
+      </a>
+      <a href='/characters' class='list-group-item'>
+        <span class="badge"><%=@characters.count%></span>
+        Characters
+      </a>
+      <a href='/species' class='list-group-item'>
+        <span class="badge"><%=@species.count%></span>
+        Species
+      </a>
+      <a href='/planets' class='list-group-item'>
+        <span class="badge"><%=@planets.count%></span>
+        Planets
+      </a>
+      <a href='/starships' class='list-group-item'>
+        <span class="badge"><%=@starships.count%></span>
+        Starships
+      </a>
+      <a href='/vehicles' class='list-group-item'>
+        <span class="badge"><%=@vehicles.count%></span>
+        Vehicles
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+<div class='panel panel-default'>
+  <div class="panel-heading"><h1 class='text-center'><%= @film.title %></h1></div>
+  <table class='table table-bordered'>
+    <tr>
+      <th>Director:</th>
+      <td><%=@film.director%></td>
+    </tr>
+    <tr>
+      <th>Producer:</th>
+      <td><%= @film.producer %>kg</td>
+    </tr>
+  </table>
+  <div class="panel-heading"><h5 class='text-center'>Opening Crawl</h5></div>
+  <div class="panel-body">
+     <p><%= @film.opening_crawl %></p>
+   </div>
+</div>
+<div class='row'>
+  <div class='col-md-4'>
+    <div class='list-group'>
+      <a href='#' class='list-group-item disabled'><h2>Characters</h2></a>
+      <% if !@film.characters.empty? %>
+      <% @film.characters.each do |c| %>
+      <a class="list-group-item" href="/characters/<%=c.id%>"><%=c.name%></a>
+      <%end%>
+      <% else %>
+      <a href='#' class="list-group-item">No Characters</a>
+      <% end %>
+    </div>
+  </div>
+  <div class='col-md-4'>
+    <div class='list-group'>
+      <a href='#' class='list-group-item disabled'><h2>Vehicles</h2></a>
+      <% if !@film.vehicles.empty? %>
+      <% @film.vehicles.each do |v| %>
+      <a class="list-group-item" href="/vehicles/<%=v.id%>"><%=v.name%></a>
+      <%end%>
+      <% else %>
+      <a href='#' class="list-group-item">No Vehicles</a>
+      <% end %>
+    </div>
+  </div>
+  <div class='col-md-4'>
+    <div class='list-group'>
+      <a href='#' class='list-group-item disabled'><h2>Starships</h2></a>
+      <% if !@film.starships.empty? %>
+      <% @film.starships.each do |s| %>
+      <a class="list-group-item" href="/starships/<%=s.id%>"><%=s.name%></a>
+      <%end%>
+      <% else %>
+      <a href='#' class="list-group-item">No Starships</a>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class='col-md-6'>
+    <div class='list-group'>
+      <a href='#' class='list-group-item disabled'><h2>Species</h2></a>
+      <% if !@film.species.empty? %>
+      <% @film.species.each do |s| %>
+      <a class="list-group-item" href="/species/<%=s.id%>"><%=s.name%></a>
+      <%end%>
+      <% else %>
+      <a href='#' class="list-group-item">No Species</a>
+      <% end %>
+    </div>
+  </div>
+  <div class='col-md-6'>
+    <div class='list-group'>
+      <a href='#' class='list-group-item disabled'><h2>Planets</h2></a>
+      <% if !@film.planets.empty? %>
+      <% @film.planets.each do |p| %>
+      <a class="list-group-item" href="/planets/<%=p.id%>"><%=p.name%></a>
+      <%end%>
+      <% else %>
+      <a href='#' class="list-group-item">No Planets</a>
+      <% end %>
+    </div>
+  </div>
+</div> <!--row-->

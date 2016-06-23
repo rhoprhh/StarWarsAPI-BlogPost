@@ -1,0 +1,29 @@
+<div class='jumbotron'><h1 class='text-center'> Characters </h1></div>
+<div class='list-group'>
+  <div class='col-md-4'>
+    <% count = 0 %>
+    <% @characters.all.each do |c|%>
+      <% if count < 30  %>
+        <a class='list-group-item' href="/characters/<%=c.id%>"><%= c.name %></a>
+      <%end%>
+      <% count += 1 %>
+    <%end%>
+  </div>
+  <div class='col-md-4'>
+    <% count = 0 %>
+    <% @characters.all.each do |c|%>
+      <% if count > 29 && count < 60  %>
+        <a class='list-group-item' href="/characters/<%=c.id%>"><%= c.name %></a>
+      <%end%>
+      <% count += 1 %>
+    <%end%>
+  </div>
+  <div class='col-md-4'>
+    <% count = 0 %>
+    <% @characters.all.each do |c|%>
+      <% if count > 59  %>
+        <a class='list-group-item' href="/characters/<%=c.id%>"><%= c.name %></a>
+      <%end%>
+      <% count += 1 %>
+    <%end%>
+</div>

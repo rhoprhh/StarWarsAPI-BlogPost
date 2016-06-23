@@ -1,0 +1,30 @@
+
+<div class='jumbotron'><h1 class='text-center'> Films </h1></div>
+<div class='list-group'>
+  <div class='col-md-4'>
+    <% count = 0 %>
+    <% @films.all.each do |f|%>
+      <% if count < 3  %>
+        <a class='list-group-item' href="/films/<%=f.id%>"><%= f.title %></a>
+      <%end%>
+      <% count += 1 %>
+    <%end%>
+  </div>
+  <div class='col-md-4'>
+    <% count = 0 %>
+    <% @films.all.each do |f|%>
+      <% if count > 2 && count < 5  %>
+        <a class='list-group-item' href="/films/<%=f.id%>"><%= f.title %></a>
+      <%end%>
+      <% count += 1 %>
+    <%end%>
+  </div>
+  <div class='col-md-4'>
+    <% count = 0 %>
+    <% @films.all.each do |f|%>
+      <% if count > 4  %>
+        <a class='list-group-item' href="/films/<%=f.id%>"><%= f.title %></a>
+      <%end%>
+      <% count += 1 %>
+    <%end%>
+</div>

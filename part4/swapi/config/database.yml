@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: swapi_development
+
+test:
+  <<: *default
+  database: swapi_test
+
+production:
+  <<: *default
+  database: swapi_production
+  username: swapi
+  password: <%= ENV['SWAPI_DATABASE_PASSWORD'] %>

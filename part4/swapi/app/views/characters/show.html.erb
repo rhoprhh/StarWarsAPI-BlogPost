@@ -1,0 +1,80 @@
+<div class='panel panel-default'>
+  <div class="panel-heading"><h1 class='text-center'><%= @character.name %></h1></div>
+  <table class='table table-bordered'>
+    <tr>
+      <th>Height:</th>
+      <td><%= @character.height %>cm tall </td>
+    </tr>
+    <tr>
+      <th>Mass:</th>
+      <td><%= @character.mass %>kg</td>
+    </tr>
+    <tr>
+      <th>Hair Color:</th>
+      <td><%= @character.hair_color %></td>
+    </tr>
+    <tr>
+      <th>Skin Color: </th>
+      <td><%= @character.skin_color %></td>
+    </tr>
+    <tr>
+      <th>Eye Color:</th>
+      <td><%= @character.eye_color %></td>
+    </tr>
+    <tr>
+      <th>Gender:</th>
+      <td><%= @character.gender %></td>
+    </tr>
+    <tr>
+      <th>Birthyear:</th>
+      <td><%= @character.birth_year %></td>
+    </tr>
+    <tr>
+      <th>Specie:</th>
+      <td><% if @character.species.empty?%>
+          No Species Listed
+          <% else %>
+          <a href='/species/<%= @character.species[0].id %>'><%= @character.species[0].name %></a>
+          <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th>Home Planet:</th>
+      <td><a href="/planets/<%= @character.planet.id %>"><%= @character.planet.name %></a></td>
+  </table>
+</div>
+<hr>
+<div class="row">
+  <div class='col-md-4'>
+    <div class='list-group'>
+      <a href='#' class='list-group-item disabled'><h2>Vehicles</h2></a>
+      <% if !@character.vehicles.empty? %>
+      <% @character.vehicles.each do |v| %>
+      <a class="list-group-item" href="/vehicles/<%=v.id%>"><%=v.name%></a>
+      <%end%>
+      <% else %>
+      <a href='#' class="list-group-item">No Vehicles</a>
+      <% end %>
+    </div>
+  </div>
+  <div class='col-md-4'>
+    <div class='list-group'>
+      <a href='#' class='list-group-item disabled'><h2>Starships</h2></a>
+      <% if !@character.starships.empty? %>
+      <% @character.starships.each do |s| %>
+      <a class='list-group-item' href="/starships/<%=s.id%>"><%=s.name%></a>
+      <%end%>
+      <% else %>
+      <a class='list-group-item'>No Starships</a>
+      <% end %>
+    </div>
+  </div>
+  <div class='col-md-4'>
+    <div class='list-group'>
+      <a class='list-group-item disabled' href='#'><h2>Films</h2></a>
+      <% @character.films.each do |f| %>
+      <a class='list-group-item' href="/films/<%=f.id%>"><%=f.title%></a>
+      <%end%>
+    </div>
+  </div>
+</div> <!-- row -->
